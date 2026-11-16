@@ -1,27 +1,28 @@
 import Link from "next/link"
+import { LayoutDashboard, ListOrdered } from "lucide-react"
 
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
-
-export default function AdminPage() {
+export function NavbarMenu() {
   return (
-    <div className="p-6">
-      <NavigationMenu>
-  <NavigationMenuList>
-    <NavigationMenuItem>
-      <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <NavigationMenuLink>Link</NavigationMenuLink>
-      </NavigationMenuContent>
-    </NavigationMenuItem>
-  </NavigationMenuList>
-</NavigationMenu>
-    </div>
+    <nav
+      aria-label="Navigasi data admin"
+      className="flex min-h-14 items-center gap-2 overflow-x-auto rounded-xl border bg-card px-3 py-2"
+    >
+      <Link
+        href="/admin"
+        className="inline-flex h-9 shrink-0 items-center gap-2 rounded-lg px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+      >
+        <LayoutDashboard className="size-4" />
+        Dashboard
+      </Link>
+      <span aria-hidden="true" className="h-6 w-px shrink-0 bg-border" />
+      <Link
+        href="/admin/crud#data-pesanan"
+        aria-current="page"
+        className="inline-flex h-9 shrink-0 items-center gap-2 rounded-lg bg-primary px-3 text-sm font-medium text-primary-foreground"
+      >
+        <ListOrdered className="size-4" />
+        Data pesanan
+      </Link>
+    </nav>
   )
 }

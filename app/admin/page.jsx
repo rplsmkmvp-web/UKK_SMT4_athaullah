@@ -1,13 +1,8 @@
-export default function AdminPage() {
+export default function Page() {
   return (
-    <section className="mx-auto w-full max-w-6xl space-y-6">
-      <div>
-        <p className="text-sm text-muted-foreground">Ringkasan</p>
-        <h1 className="mt-1 text-2xl font-semibold tracking-tight">Dashboard</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          woi lah pengen makan aku laper.
-        </p>
-      </div>
-    </section>
-  )
+    <div className="flex flex-col items-center justify-center h-screen">
+      <h1 className="text-4xl font-bold mb-4">Admin Page</h1>
+      <p className="text-lg text-gray-600">Welcome to the admin panel.</p>
+    </div>
+  );
 }
