@@ -46,8 +46,8 @@ export function LandingNavbar() {
           Hubungi kami
         </Link>
         <Link
-          href="/admin"
-          className="hidden whitespace-nowrap text-[13px] font-medium text-slate-700 transition-colors hover:text-slate-950 sm:inline-flex"
+          href="/login"
+          className="inline-flex whitespace-nowrap text-[13px] font-medium text-slate-700 transition-colors hover:text-slate-950"
         >
           Masuk
         </Link>

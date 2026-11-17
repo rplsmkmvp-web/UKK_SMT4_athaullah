@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique @db.VarChar(191)
+  passwordHash String   @map("password_hash") @db.VarChar(255)
+  role         String   @default("admin") @db.VarChar(32)
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("users")
+}

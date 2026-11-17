@@ -6,9 +6,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white p-[14px]">
       <div className="relative min-h-[calc(100vh-28px)] overflow-hidden rounded-[10px] border border-slate-200 bg-white">
-        <SplineBackground
+        {/* <SplineBackground
           sceneUrl="https://my.spline.design/bannerfortransportlogisticsoptitranslog-jSB2qZb3viqkZkuyzFmCZyht/"
-        />
+        /> */}
         <div className="pointer-events-none absolute inset-0 z-[1] bg-white/35" />
         <div className="relative z-10">
           <LandingNavbar />

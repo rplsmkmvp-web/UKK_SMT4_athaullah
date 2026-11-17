@@ -1,10 +1,23 @@
+import { Suspense } from "react"
+import { redirect } from "next/navigation"
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { Bell } from "lucide-react"
 import { Pattern as Profile } from "@/components/app-profile" 
 import { Pattern as Pencaria } from "@/components/app-pencaria"
+import { hasAdminSession } from "@/lib/auth"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background" />}>
+      <AdminShell>{children}</AdminShell>
+    </Suspense>
+  )
+}
+
+async function AdminShell({ children }: { children: React.ReactNode }) {
+  if (!(await hasAdminSession())) redirect("/login")
+
   return (
     <SidebarProvider defaultOpen>
       <AppSidebar />

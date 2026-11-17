@@ -14,7 +14,23 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:8003](http://localhost:8003) with your browser to see the result.
+
+## Database and login
+
+The app connects to the MySQL database `db_mts4_athaullah` through Prisma. The app server listens on port `8003`; MySQL uses its own port, configured separately in `.env`.
+
+For a fresh clone, copy `.env.example` to `.env` and replace the database username/password and admin credentials. Then run:
+
+```bash
+npm install
+npm run db:generate
+npm run db:migrate -- --name create_users
+npm run db:seed
+npm run dev
+```
+
+The migration creates the `users` table, and the seed command creates the initial admin using `ADMIN_EMAIL` and `ADMIN_PASSWORD`. Passwords are stored as hashes. On a production server, run `npm run db:deploy`, seed the admin once, then run `npm run build` and `npm start`. Configure the server firewall or proxy to allow incoming traffic on port `8003`.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
