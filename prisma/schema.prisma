@@ -16,3 +16,28 @@ model User {
 
   @@map("users")
 }
+
+model Order {
+  id        Int      @id @default(autoincrement())
+  reference String   @unique @db.VarChar(64)
+  customer  String   @db.VarChar(191)
+  city      String   @db.VarChar(120)
+  status    String   @default("processing") @db.VarChar(32)
+  total     Decimal  @db.Decimal(12, 2)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("orders")
+}
+
+model Product {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(191)
+  category  String   @db.VarChar(120)
+  stock     Int      @default(0)
+  price     Decimal  @db.Decimal(12, 2)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("products")
+}

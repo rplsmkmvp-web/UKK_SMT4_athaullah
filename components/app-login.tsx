@@ -79,6 +79,7 @@ export function SplitLoginForm() {
               </p>
             )}
           </form>
+          <p className="mt-6 text-center text-sm text-slate-500">Belum punya akun? <Link className="font-medium text-indigo-600 hover:underline" href="/login?mode=register">Daftar admin pertama</Link></p>
         </div>
       </section>
     </main>

@@ -1,4 +1,5 @@
 import { Suspense } from "react"
+import { connection } from "next/server"
 import { redirect } from "next/navigation"
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
@@ -16,6 +17,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 }
 
 async function AdminShell({ children }: { children: React.ReactNode }) {
+  await connection()
   if (!(await hasAdminSession())) redirect("/login")
 
   return (

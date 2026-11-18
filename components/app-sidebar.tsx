@@ -10,7 +10,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import Link from "next/link"
-import { LayoutDashboard, Home, ListOrdered, Settings } from "lucide-react"
+import { LayoutDashboard, Home, ListOrdered, Settings, Package } from "lucide-react"
 
 export function AppSidebar() {
   return (
@@ -40,7 +40,13 @@ export function AppSidebar() {
             <SidebarMenuItem>
               <SidebarMenuButton render={<Link href="/admin/crud" />}>
                 <ListOrdered />
-                <span>Data CRUD</span>
+                <span>Data User</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton render={<Link href="/admin/produk" />}>
+                <Package />
+                <span>Data Produk</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
