@@ -37,7 +37,8 @@ export async function loginAction(_previousState: LoginState, formData: FormData
   let user: { passwordHash: string; role: string } | null
   try {
     user = await prisma.user.findUnique({ where: { email } })
-  } catch {
+  } catch (error) {
+    console.error("[login] Database query failed", error instanceof Error ? { name: error.name, message: error.message } : error)
     return { message: "Database belum dapat dihubungi. Periksa URL dan port MySQL." }
   }
 
