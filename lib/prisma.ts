@@ -15,6 +15,7 @@ function createPrismaClient() {
     password: process.env.DATABASE_PASSWORD ?? "",
     database: process.env.DATABASE_NAME ?? "db_mts3_athaullah",
     connectionLimit: 5,
+    ...(process.env.DATABASE_SSL === "true" ? { ssl: true } : {}),
   })
 
   return new PrismaClient({ adapter })

@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start UKK SMT 3 dev server",
+      "type": "shell",
+      "command": "npm.cmd",
+      "args": ["run", "dev"],
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "next-dev",
+        "pattern": { "regexp": "^(.*)$", "message": 1 },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*",
+          "endsPattern": "Ready in"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Open UKK SMT 3 website",
+      "type": "process",
+      "command": "cmd.exe",
+      "args": ["/c", "start", "", "http://localhost:8003"],
+      "dependsOn": ["Start UKK SMT 3 dev server"],
+      "dependsOrder": "sequence",
+      "runOptions": {
+        "runOn": "folderOpen",
+        "instanceLimit": 1
+      }
+    }
+  ]
+}

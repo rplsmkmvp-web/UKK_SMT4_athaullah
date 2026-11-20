@@ -20,3 +20,7 @@ npm run dev
 ```
 
 File SQL membuat struktur `users`, `orders`, dan `products`. `npm run db:seed` membuat akun admin awal di `users` memakai kredensial dari `.env`. Jangan commit `.env`.
+
+## Deploy online
+
+Hubungkan repo GitHub ke hosting Next.js (misalnya Vercel). Build otomatis menjalankan Prisma generate sebelum `next build`. Atur `DATABASE_URL`, `DATABASE_HOST`, `DATABASE_PORT`, `DATABASE_USER`, `DATABASE_PASSWORD`, `DATABASE_NAME`, dan `ADMIN_SESSION_SECRET` pada environment hosting. Database harus berada di server online dan menerima koneksi dari aplikasi; `127.0.0.1` hanya menunjuk ke mesin aplikasi sendiri. Impor struktur tabel dari `database/db_mts3_athaullah.sql` ke database online sebelum membuka fitur admin.
